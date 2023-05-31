@@ -1,18 +1,19 @@
 linux:
   enabled: true
   image:
-    repository: registry.k8s.io/csi-secrets-store/driver
+    repository: image-registry.openshift-image-registry.svc:5000/openshift/driver
     tag: v1.3.3
     pullPolicy: IfNotPresent
 
   crds:
     enabled: true
     image:
-      repository: registry.k8s.io/csi-secrets-store/driver-crds
+      repository: image-registry.openshift-image-registry.svc:5000/openshift/driver-crds
       tag: v1.3.3
       pullPolicy: IfNotPresent
     ## Optionally override resource limits for crd hooks(jobs)
-    resources: {}
+    resources:
+      {}
       # requests:
       #   cpu: "100m"
       #   memory: "128Mi"
@@ -43,7 +44,7 @@ linux:
         memory: 100Mi
 
   registrarImage:
-    repository: registry.k8s.io/sig-storage/csi-node-driver-registrar
+    repository: image-registry-openshift-image-registry.apps.pgjwbjq2.eastus2.aroapp.io/openshift/csi-node-driver-registrar
     tag: v2.7.0
     pullPolicy: IfNotPresent
 
@@ -58,7 +59,7 @@ linux:
     logVerbosity: 5
 
   livenessProbeImage:
-    repository: registry.k8s.io/sig-storage/livenessprobe
+    repository: image-registry-openshift-image-registry.apps.pgjwbjq2.eastus2.aroapp.io/openshift/livenessprobe
     tag: v2.9.0
     pullPolicy: IfNotPresent
 
@@ -106,7 +107,7 @@ linux:
 windows:
   enabled: false
   image:
-    repository: registry.k8s.io/csi-secrets-store/driver
+    repository: image-registry.openshift-image-registry.svc:5000/openshift/driver
     tag: v1.3.3
     pullPolicy: IfNotPresent
 
@@ -131,7 +132,7 @@ windows:
         memory: 100Mi
 
   registrarImage:
-    repository: registry.k8s.io/sig-storage/csi-node-driver-registrar
+    repository: image-registry-openshift-image-registry.apps.pgjwbjq2.eastus2.aroapp.io/openshift/csi-node-driver-registrar
     tag: v2.7.0
     pullPolicy: IfNotPresent
 
@@ -146,7 +147,7 @@ windows:
     logVerbosity: 5
 
   livenessProbeImage:
-    repository: registry.k8s.io/sig-storage/livenessprobe
+    repository: image-registry-openshift-image-registry.apps.pgjwbjq2.eastus2.aroapp.io/openshift/livenessprobe
     tag: v2.9.0
     pullPolicy: IfNotPresent
 
